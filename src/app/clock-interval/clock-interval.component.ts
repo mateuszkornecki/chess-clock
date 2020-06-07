@@ -8,7 +8,6 @@ import { Component, OnDestroy } from '@angular/core';
 export class ClockIntervalComponent {
   timeLeft = 5000;
   isRunning = false;
-  elapsedTimeInMs = 0;
   interval;
 
   toggle(): void {
@@ -18,8 +17,11 @@ export class ClockIntervalComponent {
   onStart(): void {
     this.toggle();
     this.interval = setInterval(() => {
-      this.elapsedTimeInMs += 10;
-      this.timeLeft -= 10;
+      if (this.timeLeft > 0) {
+        this.timeLeft -= 10;
+      } else {
+        clearInterval(this.interval);
+      }
     }, 10);
   }
 
