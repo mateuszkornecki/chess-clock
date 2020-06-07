@@ -1,0 +1,4 @@
+<app-clock [totalTimeInMs]="timeLeft"> </app-clock>
+
+<button *ngIf="!isRunning" (click)="onStart()">Start</button>
+<button *ngIf="isRunning" (click)="onPause()">Pause</button>
