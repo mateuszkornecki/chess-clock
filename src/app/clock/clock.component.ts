@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-clock',
@@ -19,7 +19,7 @@ export class ClockComponent {
     return { minutes, seconds, milliseconds };
   }
 
-  formatTime({ minutes, seconds, milliseconds }) {
+  addZero({ minutes, seconds, milliseconds }) {
     return {
       minutes: String(minutes).padStart(2, '0'),
       seconds: String(seconds).padStart(2, '0'),
@@ -27,11 +27,19 @@ export class ClockComponent {
     };
   }
 
-  ngOnInit() {
+  formatTime(timeInMs) {
     const normalizedTime = this.normalizeTime(this.totalTimeInMs);
-    const { minutes, seconds, milliseconds } = this.formatTime(normalizedTime);
+    const { minutes, seconds, milliseconds } = this.addZero(normalizedTime);
     this.minutes = minutes;
     this.seconds = seconds;
     this.milliseconds = milliseconds;
+  }
+
+  ngOnInit() {
+    this.formatTime(this.totalTimeInMs);
+  }
+
+  ngOnChanges() {
+    this.formatTime(this.totalTimeInMs);
   }
 }
