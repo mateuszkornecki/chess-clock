@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NgModuleCompileResult } from '@angular/compiler/src/ng_module_compiler';
 
 @Component({
   selector: 'app-clock',
