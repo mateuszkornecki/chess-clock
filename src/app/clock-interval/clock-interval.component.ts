@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, Input, OnChanges, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-clock-interval',
@@ -6,15 +6,25 @@ import { Component, OnDestroy } from '@angular/core';
   styleUrls: ['./clock-interval.component.scss'],
 })
 export class ClockIntervalComponent {
-  timeLeft = 5000;
   isRunning = false;
   isStarted = false;
   interval;
-  timeToCount = 5000;
   startTime;
   actualTime;
   finishTime;
   collapsedTime = 0;
+  timeLeft;
+  @Input() timeToCount:number = 5000;
+  
+  ngOnDestroy(): void {
+    clearInterval(this.interval);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes.timeToCount.firstChange) {
+      this.timeLeft = changes.timeToCount.currentValue;
+    }
+}
 
   toggle(): void {
     this.isRunning = !this.isRunning;
@@ -50,7 +60,4 @@ export class ClockIntervalComponent {
     clearInterval(this.interval);
   }
 
-  ngOnDestroy(): void {
-    clearInterval(this.interval);
-  }
 }
