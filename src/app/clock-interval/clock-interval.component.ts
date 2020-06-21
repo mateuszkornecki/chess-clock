@@ -14,7 +14,7 @@ export class ClockIntervalComponent {
   finishTime: number;
   actualTime: number;
   timeLeft: number;
-  interval: NodeJS.Timeout;
+  interval: ReturnType<typeof setTimeout>;
   @Input() timeToCount;
 
   ngOnChanges(changes: SimpleChanges) {
