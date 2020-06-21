@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnDestroy, Input, OnChanges, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-clock-interval',
@@ -9,6 +9,7 @@ export class ClockIntervalComponent {
   isStarted: boolean = false;
   isRunning: boolean = false;
   isPaused: boolean = true;
+  //TODO: isFinished
   initialTime: number;
   finishTime: number;
   actualTime: number;
@@ -20,13 +21,23 @@ export class ClockIntervalComponent {
     this.setInitialTimeLeft(changes);
   }
 
-  setInitialTimeLeft(changes: SimpleChanges) {
+  private setInitialTimeLeft(changes: SimpleChanges) {
     if (changes?.timeToCount?.firstChange) {
       this.timeLeft = this.timeToCount;
     }
   }
 
-  start() {
+  public toggle() {
+    if(!this.isStarted) {
+      this.start();
+    } else if(this.isRunning) {
+      this.pause();
+    } else if(this.isPaused) {
+      this.unPause();
+    }
+  }
+
+  private start() {
     if(!this.isStarted) {
       this.isRunning = true;
       this.isStarted = true;
@@ -37,7 +48,7 @@ export class ClockIntervalComponent {
     }
   }
 
-  unPause() {
+  private unPause() {
     if(this.isPaused) {
       this.isPaused = false;
       this.isRunning = true;
@@ -47,7 +58,7 @@ export class ClockIntervalComponent {
     }
   }
 
-  pause() {
+  private pause() {
     if(this.isRunning) {
       this.isRunning = false;
       this.isPaused = true;
@@ -55,7 +66,7 @@ export class ClockIntervalComponent {
     }
   }
 
-  count() {
+  private count() {
     this.interval = setInterval(() => {
       this.actualTime = Date.now();
       if (this.timeLeft > 0) {
