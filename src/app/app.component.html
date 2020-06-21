@@ -1,4 +1,9 @@
-<app-clock-interval [timeToCount]="12300"></app-clock-interval>
-<button (click)="start()">start</button>
-<button (click)="pause()">pause</button>
-<button (click)="unPause()">unpause</button>
+<div>
+    <app-clock-interval #A [timeToCount]="10000"></app-clock-interval>
+    <button id="A" [disabled]="isAPaused" (click)="onClick($event)">Justyś</button>
+</div>
+
+<div>
+    <app-clock-interval #B [timeToCount]="8500"></app-clock-interval>
+    <button id="B" [disabled]="isBPaused" (click)="onClick($event)">Pyś</button>
+</div>
