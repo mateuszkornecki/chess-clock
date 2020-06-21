@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Input, OnChanges, SimpleChanges} from '@angular/core';
+import { Component, OnDestroy, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-clock-interval',
@@ -6,58 +6,56 @@ import { Component, OnDestroy, Input, OnChanges, SimpleChanges} from '@angular/c
   styleUrls: ['./clock-interval.component.scss'],
 })
 export class ClockIntervalComponent {
-  isRunning = false;
-  isStarted = false;
-  interval;
-  startTime;
-  actualTime;
-  finishTime;
-  collapsedTime = 0;
-  timeLeft;
-  @Input() timeToCount:number = 5000;
-  
-  ngOnDestroy(): void {
-    clearInterval(this.interval);
-  }
+  isStarted: boolean = false;
+  isRunning: boolean = false;
+  isPaused: boolean = true;
+  initialTime: number;
+  finishTime: number;
+  actualTime: number;
+  timeLeft: number;
+  interval: NodeJS.Timeout;
+  @Input() timeToCount;
 
   ngOnChanges(changes: SimpleChanges) {
-    if(changes.timeToCount.firstChange) {
-      this.timeLeft = changes.timeToCount.currentValue;
-    }
-}
-
-  toggle(): void {
-    this.isRunning = !this.isRunning;
+    this.setInitialTimeLeft(changes);
   }
 
-  onStart(): void {
-    this.toggle();
-    this.startTime = this.actualTime = Date.now();
-    if (!this.isStarted) {
-      this.isStarted = true;
-      this.finishTime = this.startTime + this.timeToCount;
-      this.handleInterval();
-    } else {
-      this.finishTime = this.startTime + this.timeLeft;
-      this.handleInterval();
+  setInitialTimeLeft(changes: SimpleChanges) {
+    if (changes?.timeToCount?.firstChange) {
+      this.timeLeft = this.timeToCount;
     }
   }
 
-  handleInterval() {
-    this.interval = setInterval(() => {
-      if (this.actualTime < this.finishTime) {
-        this.actualTime = Date.now();
-        this.collapsedTime += 10;
-        this.timeLeft = this.timeToCount - this.collapsedTime;
-      } else {
-        clearInterval(this.interval);
-      }
-    }, 10);
+  start() {
+    this.isRunning = true;
+    this.isStarted = true;
+    this.initialTime = Date.now();
+    this.finishTime = this.initialTime + this.timeToCount;
+    this.timeLeft = this.finishTime - this.initialTime;
+    this.count();
   }
 
-  onPause(): void {
-    this.toggle();
+  unPause() {
+    this.isPaused = false;
+    this.isRunning = true;
+    this.initialTime = Date.now();
+    this.finishTime = this.initialTime + this.timeLeft;
+    this.count();
+  }
+
+  pause() {
+    this.isRunning = false;
+    this.isPaused = true;
     clearInterval(this.interval);
+  }
+
+  count() {
+    this.interval = setInterval(() => {
+      this.actualTime = Date.now();
+      if (this.timeLeft > 0) {
+        this.timeLeft = this.finishTime - this.actualTime;
+      }
+    }, 10)
   }
 
 }
