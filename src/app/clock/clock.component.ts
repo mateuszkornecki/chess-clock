@@ -10,7 +10,7 @@ export class ClockComponent {
   milliseconds: string;
   seconds: string;
   minutes: string;
-  
+
   ngOnInit() {
     this.formatTime(this.totalTimeInMs);
   }
@@ -18,7 +18,7 @@ export class ClockComponent {
   ngOnChanges() {
     this.formatTime(this.totalTimeInMs);
   }
-  
+
   normalizeTime(timeInMs) {
     const minutes = Math.floor(timeInMs / 60000);
     const seconds = Math.floor(timeInMs / 1000) % 60;
@@ -36,7 +36,7 @@ export class ClockComponent {
   }
 
   formatTime(timeInMs) {
-    const normalizedTime = this.normalizeTime(this.totalTimeInMs);
+    const normalizedTime = timeInMs > 0 ? this.normalizeTime(this.totalTimeInMs) : this.normalizeTime(0);
     const { minutes, seconds, milliseconds } = this.addZero(normalizedTime);
     this.minutes = minutes;
     this.seconds = seconds;
