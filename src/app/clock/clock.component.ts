@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-clock',
@@ -6,14 +6,10 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
   styleUrls: ['./clock.component.scss'],
 })
 export class ClockComponent {
-  @Input() totalTimeInMs: number;
   milliseconds: string;
   seconds: string;
   minutes: string;
-
-  ngOnInit() {
-    this.formatTime(this.totalTimeInMs);
-  }
+  @Input() totalTimeInMs: number;
 
   ngOnChanges() {
     this.formatTime(this.totalTimeInMs);
