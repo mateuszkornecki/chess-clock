@@ -27,26 +27,32 @@ export class ClockIntervalComponent {
   }
 
   start() {
-    this.isRunning = true;
-    this.isStarted = true;
-    this.initialTime = Date.now();
-    this.finishTime = this.initialTime + this.timeToCount;
-    this.timeLeft = this.finishTime - this.initialTime;
-    this.count();
+    if(!this.isStarted) {
+      this.isRunning = true;
+      this.isStarted = true;
+      this.initialTime = Date.now();
+      this.finishTime = this.initialTime + this.timeToCount;
+      this.timeLeft = this.finishTime - this.initialTime;
+      this.count();
+    }
   }
 
   unPause() {
-    this.isPaused = false;
-    this.isRunning = true;
-    this.initialTime = Date.now();
-    this.finishTime = this.initialTime + this.timeLeft;
-    this.count();
+    if(this.isPaused) {
+      this.isPaused = false;
+      this.isRunning = true;
+      this.initialTime = Date.now();
+      this.finishTime = this.initialTime + this.timeLeft;
+      this.count();
+    }
   }
 
   pause() {
-    this.isRunning = false;
-    this.isPaused = true;
-    clearInterval(this.interval);
+    if(this.isRunning) {
+      this.isRunning = false;
+      this.isPaused = true;
+      clearInterval(this.interval);
+    }
   }
 
   count() {
