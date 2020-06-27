@@ -1,4 +1,10 @@
-import { Component, OnDestroy, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-clock-interval',
@@ -28,17 +34,17 @@ export class ClockIntervalComponent {
   }
 
   public toggle() {
-    if(!this.isStarted) {
+    if (!this.isStarted) {
       this.start();
-    } else if(this.isRunning) {
+    } else if (this.isRunning) {
       this.pause();
-    } else if(this.isPaused) {
+    } else if (this.isPaused) {
       this.unPause();
     }
   }
 
   private start() {
-    if(!this.isStarted) {
+    if (!this.isStarted) {
       this.isRunning = true;
       this.isStarted = true;
       this.initialTime = Date.now();
@@ -49,7 +55,7 @@ export class ClockIntervalComponent {
   }
 
   private unPause() {
-    if(this.isPaused) {
+    if (this.isPaused) {
       this.isPaused = false;
       this.isRunning = true;
       this.initialTime = Date.now();
@@ -59,7 +65,7 @@ export class ClockIntervalComponent {
   }
 
   private pause() {
-    if(this.isRunning) {
+    if (this.isRunning) {
       this.isRunning = false;
       this.isPaused = true;
       clearInterval(this.interval);
@@ -72,7 +78,6 @@ export class ClockIntervalComponent {
       if (this.timeLeft > 0) {
         this.timeLeft = this.finishTime - this.actualTime;
       }
-    }, 10)
+    }, 10);
   }
-
 }

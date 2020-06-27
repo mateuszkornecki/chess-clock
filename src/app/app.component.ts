@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { ClockIntervalComponent } from './clock-interval/clock-interval.component';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   first;
@@ -23,14 +22,14 @@ export class AppComponent {
   onClick(event) {
     if (!this.first) {
       this.first = event.target.id;
-      this.second = this.first === "A" ? "B" : "A"
+      this.second = this.first === 'A' ? 'B' : 'A';
     }
     this.toggle();
   }
 
   //TODO: Need to clean up toogle() method.
   toggle() {
-    if (this.first === "A") {
+    if (this.first === 'A') {
       if (!this.firstIsStarted) {
         this.counterA.toggle();
         this.firstIsRunning = true;
@@ -43,7 +42,7 @@ export class AppComponent {
         this.counterB.toggle();
         this.firstIsRunning = !this.firstIsRunning;
       }
-    } else if (this.second === "A") {
+    } else if (this.second === 'A') {
       if (!this.firstIsStarted) {
         this.counterB.toggle();
         this.firstIsRunning = true;
@@ -58,5 +57,4 @@ export class AppComponent {
       }
     }
   }
-
 }
