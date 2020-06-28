@@ -32,11 +32,13 @@ export class ClockComponent {
   }
 
   formatTime(timeInMs) {
-    const normalizedTime = timeInMs > 0 ? this.normalizeTime(this.totalTimeInMs) : this.normalizeTime(0);
+    const normalizedTime =
+      timeInMs > 0
+        ? this.normalizeTime(this.totalTimeInMs)
+        : this.normalizeTime(0);
     const { minutes, seconds, milliseconds } = this.addZero(normalizedTime);
     this.minutes = minutes;
     this.seconds = seconds;
     this.milliseconds = milliseconds;
   }
-
 }
