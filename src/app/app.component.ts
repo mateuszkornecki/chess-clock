@@ -8,12 +8,11 @@ import { ClockIntervalComponent } from './clock-interval/clock-interval.componen
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  first;
-  second;
-  firstIsStarted = false;
-  firstIsRunning = false;
-  isAPaused = false;
-  isBPaused = false;
+  first: 'A' | 'B';
+  second: 'A' | 'B';
+  paused: 'A' | 'B';
+  running: 'A' | 'B';
+  isStarted = false;
   @ViewChild('A')
   counterA: ClockIntervalComponent;
   @ViewChild('B')
@@ -27,34 +26,20 @@ export class AppComponent {
     this.toggle();
   }
 
-  //TODO: Need to clean up toogle() method.
   toggle() {
-    if (this.first === 'A') {
-      if (!this.firstIsStarted) {
-        this.counterA.toggle();
-        this.firstIsRunning = true;
-        this.firstIsStarted = true;
-        this.isBPaused = true;
-      } else {
-        this.isAPaused = !this.isAPaused;
-        this.isBPaused = !this.isBPaused;
-        this.counterA.toggle();
-        this.counterB.toggle();
-        this.firstIsRunning = !this.firstIsRunning;
-      }
-    } else if (this.second === 'A') {
-      if (!this.firstIsStarted) {
-        this.counterB.toggle();
-        this.firstIsRunning = true;
-        this.firstIsStarted = true;
-        this.isAPaused = true;
-      } else {
-        this.isAPaused = !this.isAPaused;
-        this.isBPaused = !this.isBPaused;
-        this.counterA.toggle();
-        this.counterB.toggle();
-        this.firstIsRunning = !this.firstIsRunning;
-      }
+    const firstCounter = this.first === 'A' ? this.counterA : this.counterB;
+    const secondCounter = this.first === 'A' ? this.counterB : this.counterA;
+
+    if (!this.isStarted) {
+      this.isStarted = true;
+      this.running = this.first;
+      this.paused = this.second;
+      firstCounter.toggle();
+    } else {
+      this.running = this.running === 'A' ? 'B' : 'A';
+      this.paused = this.running === 'B' ? 'A' : 'B';
+      firstCounter.toggle();
+      secondCounter.toggle();
     }
   }
 }
