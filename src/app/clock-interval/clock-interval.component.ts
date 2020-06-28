@@ -15,7 +15,7 @@ export class ClockIntervalComponent {
   isStarted: boolean = false;
   isRunning: boolean = false;
   isPaused: boolean = true;
-  //TODO: isFinished
+  isFinished: boolean = false;
   initialTime: number;
   finishTime: number;
   actualTime: number;
@@ -77,6 +77,9 @@ export class ClockIntervalComponent {
       this.actualTime = Date.now();
       if (this.timeLeft > 0) {
         this.timeLeft = this.finishTime - this.actualTime;
+      } else {
+        this.isFinished = true;
+        clearInterval(this.interval);
       }
     }, 10);
   }
