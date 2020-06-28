@@ -27,6 +27,10 @@ export class ClockIntervalComponent {
     this.setInitialTimeLeft(changes);
   }
 
+  ngOnDestroy() {
+    clearInterval(this.interval);
+  }
+
   private setInitialTimeLeft(changes: SimpleChanges) {
     if (changes?.timeToCount?.firstChange) {
       this.timeLeft = this.timeToCount;
