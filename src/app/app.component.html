@@ -1,9 +1,22 @@
-<div>
-  <app-clock-interval #A [timeToCount]="10000"></app-clock-interval>
-  <button id="A" [disabled]="paused === 'A'" (click)="onClick($event)"></button>
-</div>
-
-<div>
-  <app-clock-interval #B [timeToCount]="8500"></app-clock-interval>
-  <button id="B" [disabled]="paused === 'B'" (click)="onClick($event)"></button>
-</div>
+<main>
+  <button
+    class="counter"
+    id="A"
+    [disabled]="paused === 'A'"
+    (click)="onClick($event)"
+  >
+    <app-clock-interval #A [timeToCount]="5 * 60 * 1000"></app-clock-interval>
+  </button>
+  <section>
+    <button>||</button>
+    <button>O</button>
+  </section>
+  <button
+    class="counter"
+    id="B"
+    [disabled]="paused === 'B'"
+    (click)="onClick($event)"
+  >
+    <app-clock-interval #B [timeToCount]="5 * 60 * 1000"></app-clock-interval>
+  </button>
+</main>
