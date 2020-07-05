@@ -6,6 +6,8 @@ import {
   SimpleChanges,
 } from '@angular/core';
 
+import {Colors} from '../Colors';
+
 @Component({
   selector: 'app-clock-interval',
   templateUrl: './clock-interval.component.html',
@@ -20,6 +22,7 @@ export class ClockIntervalComponent {
   finishTime: number;
   actualTime: number;
   timeLeft: number;
+  color: string;
   interval: ReturnType<typeof setTimeout>;
   @Input() timeToCount;
 
@@ -72,6 +75,7 @@ export class ClockIntervalComponent {
     if (this.isRunning) {
       this.isRunning = false;
       this.isPaused = true;
+      this.color = Colors.Pause;
       clearInterval(this.interval);
     }
   }
@@ -81,6 +85,11 @@ export class ClockIntervalComponent {
       this.actualTime = Date.now();
       if (this.timeLeft > 0) {
         this.timeLeft = this.finishTime - this.actualTime;
+        const percentage = Math.round(this.timeLeft / this.timeToCount * 100);
+        this.color = percentage > 66 ?
+          Colors.Green : percentage > 33 ?
+            Colors.Orange : Colors.Red;
+
       } else {
         this.isFinished = true;
         clearInterval(this.interval);
