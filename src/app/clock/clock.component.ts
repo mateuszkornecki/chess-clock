@@ -10,6 +10,7 @@ export class ClockComponent {
   seconds: string;
   minutes: string;
   @Input() totalTimeInMs: number;
+  @Input() color: string;
 
   ngOnChanges() {
     this.formatTime(this.totalTimeInMs);
