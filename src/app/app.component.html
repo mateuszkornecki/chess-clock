@@ -5,7 +5,7 @@
     [disabled]="paused === 'A'"
     (click)="onClick($event)"
   >
-    <app-clock-interval #A [timeToCount]="5 * 60 * 1000"></app-clock-interval>
+    <app-clock-interval #A [timeToCount]="60 * 1000"></app-clock-interval>
   </button>
   <section>
     <button>||</button>
@@ -17,6 +17,7 @@
     [disabled]="paused === 'B'"
     (click)="onClick($event)"
   >
-    <app-clock-interval #B [timeToCount]="5 * 60 * 1000"></app-clock-interval>
+    <app-clock-interval #B [timeToCount]="60 * 1000"></app-clock-interval>
   </button>
+  <app-progress-bar [progress]="75"></app-progress-bar>
 </main>

@@ -8,7 +8,6 @@ main {
   justify-content: space-between;
   padding: 2rem;
 }
-
 button {
   background: #ffffff;
   border: 0;
@@ -16,14 +15,12 @@ button {
   outline: none;
   &.counter {
     &:enabled {
-      color: #a5d77e;
       box-shadow: 0.5rem 0.5rem 2rem #d9d9d9, -0.5rem -0.5rem 2rem #ffffff;
     }
     &:disabled {
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 16px;
-      color: #a9a9a9;
     }
   }
 }

@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ClockComponent } from './clock/clock.component';
 import { ClockIntervalComponent } from './clock-interval/clock-interval.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClockComponent,
-    ClockIntervalComponent
+    ClockIntervalComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule
