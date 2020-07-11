@@ -23,6 +23,7 @@ export class ClockIntervalComponent {
   actualTime: number;
   timeLeft: number;
   color: string;
+  percentage: number;
   interval: ReturnType<typeof setTimeout>;
   @Input() timeToCount;
 
@@ -75,9 +76,20 @@ export class ClockIntervalComponent {
     if (this.isRunning) {
       this.isRunning = false;
       this.isPaused = true;
-      this.color = Colors.Pause;
+      this.setColor();
       clearInterval(this.interval);
     }
+  }
+
+  private setColor():void {
+    if(this.isRunning) {
+      this.color = this.percentage > 66 ?
+        Colors.Green : this.percentage > 33 ?
+          Colors.Orange : Colors.Red;
+    } else {
+      this.color = Colors.Pause;
+    }
+
   }
 
   private count() {
@@ -85,10 +97,8 @@ export class ClockIntervalComponent {
       this.actualTime = Date.now();
       if (this.timeLeft > 0) {
         this.timeLeft = this.finishTime - this.actualTime;
-        const percentage = Math.round(this.timeLeft / this.timeToCount * 100);
-        this.color = percentage > 66 ?
-          Colors.Green : percentage > 33 ?
-            Colors.Orange : Colors.Red;
+        this.percentage = Math.round(this.timeLeft / this.timeToCount * 100);
+        this.setColor();
 
       } else {
         this.isFinished = true;

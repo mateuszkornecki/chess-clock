@@ -1,6 +1,9 @@
-<app-clock
-  [totalTimeInMs]="timeLeft"
-  [color]="color"
->
-</app-clock>
-
+<div style="position: relative">
+  <app-clock
+    [totalTimeInMs]="timeLeft"
+    [color]="color"
+    style="position: absolute; top: 38%; right: 30%;"
+  >
+  </app-clock>
+  <app-progress-bar [progress]="percentage" [color]="color"></app-progress-bar>
+</div>

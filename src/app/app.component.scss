@@ -13,6 +13,7 @@ button {
   border: 0;
   border-radius: 2rem;
   outline: none;
+  padding: 0;
   &.counter {
     &:enabled {
       box-shadow: 0.5rem 0.5rem 2rem #d9d9d9, -0.5rem -0.5rem 2rem #ffffff;
@@ -20,17 +21,15 @@ button {
     &:disabled {
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 16px;
+      border-radius: 2rem;
     }
   }
 }
 
 .counter {
   align-items: center;
-  display: flex;
   font-family: "Fira Code", monospace;
   height: 20rem;
-  justify-content: center;
   margin: 1rem;
   width: 20rem;
 }
