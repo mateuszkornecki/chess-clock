@@ -15,6 +15,7 @@ import {
 })
 export class ProgressBarComponent {
   @Input() progress;
+  @Input() color;
   @ViewChild('rect') rect: ElementRef;
   length: number;
   percent: number;
@@ -24,13 +25,19 @@ export class ProgressBarComponent {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.length = this.rect.nativeElement.getTotalLength();
-      this.strokeDasharray = this.length + 0.5;
-      this.strokeDashoffset = this.length - (this.length * this.percent);
+      this.strokeDasharray = this.length;
     })
   };
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.percent = changes.progress.currentValue/100;
+    if(changes.color && this.rect) {
+      this.rect.nativeElement.style.stroke = changes.color.currentValue;
+    }
+
+    if(changes.progress) {
+      this.percent = changes.progress.currentValue/100;
+      this.strokeDashoffset = this.length - (this.length * this.percent);
+    }
   };
 
 }
