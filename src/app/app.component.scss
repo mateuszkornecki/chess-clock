@@ -36,6 +36,11 @@ button {
   margin: 1rem;
 
   @media (max-height: 800px) {
+    max-height: 17.5rem;
+    max-width: 17.5rem;
+  }
+
+  @media (max-height: 700px) {
     max-height: 15rem;
     max-width: 15rem;
   }
