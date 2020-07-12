@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AfterViewInit, ViewChild } from '@angular/core';
+import { ViewChild } from '@angular/core';
 import { ClockIntervalComponent } from './clock-interval/clock-interval.component';
 
 @Component({
@@ -20,7 +20,7 @@ export class AppComponent {
 
   onClick(event) {
     if (!this.first) {
-      this.first = event.target.id;
+      this.first = event.path[4].id;
       this.second = this.first === 'A' ? 'B' : 'A';
     }
     this.toggle();
