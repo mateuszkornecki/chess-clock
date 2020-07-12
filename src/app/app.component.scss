@@ -35,7 +35,9 @@ button {
   width:100%;
   margin: 1rem;
   &--upper {
-    transform: rotate(180deg)
+    @media (max-width: 1024px) {
+      transform: rotate(180deg);
+    }
   }
 
   @media (max-height: 800px) {
