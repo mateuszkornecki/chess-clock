@@ -97,7 +97,7 @@ export class ClockIntervalComponent {
       this.actualTime = Date.now();
       if (this.timeLeft > 0) {
         this.timeLeft = this.finishTime - this.actualTime;
-        this.percentage = Math.round(this.timeLeft / this.timeToCount * 100);
+        this.percentage = this.timeLeft / this.timeToCount * 100;
         this.setColor();
 
       } else {
