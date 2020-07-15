@@ -89,7 +89,6 @@ export class ClockIntervalComponent {
     } else {
       this.color = Colors.Pause;
     }
-
   }
 
   private count() {

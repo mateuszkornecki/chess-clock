@@ -17,6 +17,7 @@ export class ProgressBarComponent {
   @Input() progress;
   @Input() color;
   @ViewChild('rect') rect: ElementRef;
+  @ViewChild('background') background: ElementRef;
   length: number;
   percent: number;
   strokeDasharray: number;
@@ -32,6 +33,8 @@ export class ProgressBarComponent {
   ngOnChanges(changes: SimpleChanges): void {
     if(changes.color && this.rect) {
       this.rect.nativeElement.style.stroke = changes.color.currentValue;
+      this.background.nativeElement.style.stroke = 'lightgray';
+
     }
 
     if(changes.progress) {
