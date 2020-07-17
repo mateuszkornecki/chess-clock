@@ -30,13 +30,17 @@ button {
   font-family: "Fira Code", monospace;
   height: 20rem;
   width: 20rem;
-  height: 12.5rem;
-  width: 12.5rem;
   margin: 1rem;
   &--upper {
     @media (max-width: 1024px) {
       transform: rotate(180deg);
     }
+  }
+
+  @media (max-height: 1024px) {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 1.8rem;
   }
 
   @media (max-height: 800px) {
