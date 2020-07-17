@@ -1,12 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
 
 main {
+  justify-content: center;
   align-items: center;
   background: white;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 2rem;
+  height: 100vh;
+  @media (max-width: 1482px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 button {
   background: #ffffff;
