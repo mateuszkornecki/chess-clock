@@ -1,13 +1,13 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ViewChild, OnInit} from '@angular/core';
 import {TimerIntervalComponent} from '../timer-interval/timer-interval.component';
-
 
 @Component({
   selector: 'app-timers-synchronizer',
   templateUrl: './timers-synchronizer.component.html',
   styleUrls: ['./timers-synchronizer.component.scss']
 })
-export class TimersSynchronizerComponent {
+export class TimersSynchronizerComponent implements OnInit {
+  timeToCount;
   first: 'A' | 'B';
   second: 'A' | 'B';
   paused: 'A' | 'B';
@@ -17,6 +17,10 @@ export class TimersSynchronizerComponent {
   counterA: TimerIntervalComponent;
   @ViewChild('B')
   counterB: TimerIntervalComponent;
+
+  ngOnInit() {
+    this.timeToCount = Number(window.history.state.test);
+  }
 
   onClick(event) {
     if (!this.first) {

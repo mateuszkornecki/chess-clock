@@ -25,7 +25,7 @@ export class TimerIntervalComponent implements OnChanges, OnDestroy{
   color: string;
   percentage: number;
   interval: ReturnType<typeof setTimeout>;
-  @Input() timeToCount;
+  @Input() timeToCount: number;
 
   ngOnChanges(changes: SimpleChanges) {
     this.setInitialTimeLeft(changes);
