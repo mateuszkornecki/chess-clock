@@ -1,9 +1,9 @@
 <div>
-  <app-clock
+  <app-timer-display
     class="clock"
     [totalTimeInMs]="timeLeft"
     [color]="color"
   >
-  </app-clock>
+  </app-timer-display>
   <app-progress-bar [progress]="percentage" [color]="percentage > 0 ? color : 'white'"></app-progress-bar>
 </div>

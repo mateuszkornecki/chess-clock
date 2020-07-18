@@ -19,7 +19,7 @@ describe('AppComponent', () => {
   //   fixture.detectChanges();
   //   const compiled = fixture.nativeElement;
   //   expect(compiled.querySelector('.content span').textContent).toContain(
-  //     'chess-clock app is running!'
+  //     'chess-timer-display app is running!'
   //   );
   // });
 });

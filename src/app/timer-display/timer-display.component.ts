@@ -1,11 +1,11 @@
 import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-clock',
-  templateUrl: './clock.component.html',
-  styleUrls: ['./clock.component.scss'],
+  selector: 'app-timer-display',
+  templateUrl: './timer-display.component.html',
+  styleUrls: ['./timer-display.component.scss'],
 })
-export class ClockComponent {
+export class TimerDisplayComponent {
   milliseconds: string;
   seconds: string;
   minutes: string;
