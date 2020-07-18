@@ -1,0 +1,23 @@
+<main>
+  <button
+    class="counter counter--upper"
+    id="A"
+    [disabled]="paused === 'A'"
+    (click)="onClick($event)"
+  >
+    <app-timer-interval #A [timeToCount]="60 * 1000"></app-timer-interval>
+  </button>
+  <!--  TODO: Add global pause / global stop buttons-->
+  <!--  <section>-->
+  <!--    <button>||</button>-->
+  <!--    <button>O</button>-->
+  <!--  </section>-->
+  <button
+    class="counter"
+    id="B"
+    [disabled]="paused === 'B'"
+    (click)="onClick($event)"
+  >
+    <app-timer-interval #B [timeToCount]="60 * 1000"></app-timer-interval>
+  </button>
+</main>
