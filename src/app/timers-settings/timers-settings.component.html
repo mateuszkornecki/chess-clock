@@ -1,0 +1,8 @@
+<h1>Chess clock</h1>
+<p>Set time to count</p>
+<label>
+  <input [(ngModel)]="test">
+</label>
+<br>
+<br>
+<a routerLink="/game" routerLinkActive="active" [state]="{test: test}">Save</a>
