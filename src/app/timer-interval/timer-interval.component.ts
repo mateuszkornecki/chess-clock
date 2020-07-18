@@ -9,7 +9,7 @@ import {
 import {Colors} from '../Colors';
 
 @Component({
-  selector: 'app-clock-interval',
+  selector: 'app-timer-interval',
   templateUrl: './timer-interval.component.html',
   styleUrls: ['./timer-interval.component.scss'],
 })
@@ -97,7 +97,7 @@ export class TimerIntervalComponent implements OnChanges, OnDestroy{
       this.actualTime = Date.now();
       if (this.timeLeft > 0) {
         this.timeLeft = this.finishTime - this.actualTime;
-        this.percentage = this.timeLeft / this.timeToCount * 100;
+        this.percentage = Number((this.timeLeft / this.timeToCount * 100).toFixed(1));
         this.setColor();
 
       } else {
