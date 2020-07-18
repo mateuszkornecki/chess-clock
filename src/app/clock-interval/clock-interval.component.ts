@@ -13,11 +13,11 @@ import {Colors} from '../Colors';
   templateUrl: './clock-interval.component.html',
   styleUrls: ['./clock-interval.component.scss'],
 })
-export class ClockIntervalComponent {
-  isStarted: boolean = false;
-  isRunning: boolean = false;
-  isPaused: boolean = true;
-  isFinished: boolean = false;
+export class ClockIntervalComponent implements OnChanges, OnDestroy{
+  isStarted = false;
+  isRunning = false;
+  isPaused = true;
+  isFinished = false;
   initialTime: number;
   finishTime: number;
   actualTime: number;
@@ -81,8 +81,8 @@ export class ClockIntervalComponent {
     }
   }
 
-  private setColor():void {
-    if(this.isRunning) {
+  private setColor(): void {
+    if (this.isRunning) {
       this.color = this.percentage > 66 ?
         Colors.Green : this.percentage > 33 ?
           Colors.Orange : Colors.Red;
