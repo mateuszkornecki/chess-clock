@@ -5,17 +5,17 @@ main {
   align-items: center;
   background: white;
   display: flex;
-  height: 100vh;
+  height: calc(100vh);
   @media (max-width: 1482px) {
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
 }
 button {
   background: #ffffff;
   border: 0;
-  border-radius: 2.05rem;
+  border-radius: 2.5rem;
   outline: none;
   padding: 0;
   &.counter {
@@ -32,8 +32,8 @@ button {
 .counter {
   align-items: center;
   font-family: "Fira Code", monospace;
-  height: 20rem;
-  width: 20rem;
+  height: 25rem;
+  width: 25rem;
   margin: 1rem;
   &--upper {
     @media (max-width: 1024px) {
@@ -41,25 +41,29 @@ button {
     }
   }
 
-  @media (max-height: 1024px) {
+  @media (max-width: 1024px) {
+    height: 22.5rem;
+    width: 22.5rem;
+  }
+  @media (max-width: 768px) {
     height: 20rem;
     width: 20rem;
     border-radius: 1.8rem;
   }
 
-  @media (max-height: 800px) {
+  @media (max-width: 425px) {
     height: 17.5rem;
     width: 17.5rem;
     border-radius: 1.8rem;
   }
 
-  @media (max-height: 700px) {
+  @media (max-width: 375px) {
     height: 15rem;
     width: 15rem;
     border-radius: 1.55rem;
   }
 
-  @media (max-height: 600px) {
+  @media (max-width: 350px) {
     height: 12.5rem;
     width: 12.5rem;
     border-radius: 1.30rem;
