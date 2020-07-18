@@ -5,7 +5,7 @@ import { Component, Input, OnChanges } from '@angular/core';
   templateUrl: './timer-display.component.html',
   styleUrls: ['./timer-display.component.scss'],
 })
-export class TimerDisplayComponent {
+export class TimerDisplayComponent implements OnChanges{
   milliseconds: string;
   seconds: string;
   minutes: string;
