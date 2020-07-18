@@ -10,10 +10,10 @@ import {Colors} from '../Colors';
 
 @Component({
   selector: 'app-clock-interval',
-  templateUrl: './clock-interval.component.html',
-  styleUrls: ['./clock-interval.component.scss'],
+  templateUrl: './timer-interval.component.html',
+  styleUrls: ['./timer-interval.component.scss'],
 })
-export class ClockIntervalComponent implements OnChanges, OnDestroy{
+export class TimerIntervalComponent implements OnChanges, OnDestroy{
   isStarted = false;
   isRunning = false;
   isPaused = true;

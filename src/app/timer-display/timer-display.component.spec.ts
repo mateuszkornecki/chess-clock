@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TimerDisplayComponent } from './timer-display.component';
 
-describe('ClockComponent', () => {
+describe('TimerComponent', () => {
   let component: TimerDisplayComponent;
   let fixture: ComponentFixture<TimerDisplayComponent>;
 
