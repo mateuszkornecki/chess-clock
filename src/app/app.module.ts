@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,11 +9,7 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { TimersSynchronizerComponent } from './timers-synchronizer/timers-synchronizer.component';
-
-const routes: Routes = [
-  {path: 'timers', component: TimersSynchronizerComponent},
-  { path: '', redirectTo: '/timers', pathMatch: 'full' },
-];
+import { TimersSettingsComponent } from './timers-settings/timers-settings.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +17,13 @@ const routes: Routes = [
     TimerDisplayComponent,
     TimerIntervalComponent,
     ProgressBarComponent,
-    TimersSynchronizerComponent
+    TimersSynchronizerComponent,
+    TimersSettingsComponent
   ],
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    AppRoutingModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
