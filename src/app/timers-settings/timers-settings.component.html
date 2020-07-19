@@ -3,9 +3,9 @@
 </header>
 <main style="display: flex; flex-direction: column; align-items: center;">
   <div style="display: flex;">
-    <button (click)="decrement()">-</button>
-    <p style="padding: 1rem;">Time to count: {{ count$ | async }}</p>
-    <button (click)="increment()">+</button>
+    <button mat-raised-button (click)="decrement()">-</button>
+    <p style="padding-left: 1rem; padding-right: 1rem;">Time to count: {{ count$ | async }}</p>
+    <button mat-raised-button (click)="increment()">+</button>
   </div>
 
   <br />
