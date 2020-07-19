@@ -6,14 +6,14 @@ import {
   SimpleChanges,
 } from '@angular/core';
 
-import {Colors} from '../Colors';
+import { Colors } from '../Colors';
 
 @Component({
   selector: 'app-timer-interval',
   templateUrl: './timer-interval.component.html',
   styleUrls: ['./timer-interval.component.scss'],
 })
-export class TimerIntervalComponent implements OnChanges, OnDestroy{
+export class TimerIntervalComponent implements OnChanges, OnDestroy {
   isStarted = false;
   isRunning = false;
   isPaused = true;
@@ -83,13 +83,15 @@ export class TimerIntervalComponent implements OnChanges, OnDestroy{
 
   private setColor(): void {
     if (this.isRunning) {
-      this.color = this.percentage > 66 ?
-        Colors.Green : this.percentage > 33 ?
-          Colors.Orange : Colors.Red;
+      this.color =
+        this.percentage > 66
+          ? Colors.Green
+          : this.percentage > 33
+          ? Colors.Orange
+          : Colors.Red;
     } else {
       this.color = Colors.Pause;
     }
-
   }
 
   private count() {
@@ -97,9 +99,10 @@ export class TimerIntervalComponent implements OnChanges, OnDestroy{
       this.actualTime = Date.now();
       if (this.timeLeft > 0) {
         this.timeLeft = this.finishTime - this.actualTime;
-        this.percentage = Number((this.timeLeft / this.timeToCount * 100).toFixed(1));
+        this.percentage = Number(
+          ((this.timeLeft / this.timeToCount) * 100).toFixed(3)
+        );
         this.setColor();
-
       } else {
         this.isFinished = true;
         clearInterval(this.interval);

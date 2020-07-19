@@ -1,10 +1,13 @@
-import {Component, ViewChild, OnInit} from '@angular/core';
-import {TimerIntervalComponent} from '../timer-interval/timer-interval.component';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { TimerIntervalComponent } from '../timer-interval/timer-interval.component';
+
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-timers-synchronizer',
   templateUrl: './timers-synchronizer.component.html',
-  styleUrls: ['./timers-synchronizer.component.scss']
+  styleUrls: ['./timers-synchronizer.component.scss'],
 })
 export class TimersSynchronizerComponent implements OnInit {
   timeToCount;
@@ -13,10 +16,17 @@ export class TimersSynchronizerComponent implements OnInit {
   paused: 'A' | 'B';
   running: 'A' | 'B';
   isStarted = false;
+  test: number;
   @ViewChild('A')
   counterA: TimerIntervalComponent;
   @ViewChild('B')
   counterB: TimerIntervalComponent;
+
+  constructor(private store: Store<{ count: number }>) {
+    this.store
+      .pipe(select('count'))
+      .subscribe((curr) => (this.test = curr * 60 * 1000));
+  }
 
   ngOnInit() {
     this.timeToCount = Number(window.history.state.test);
@@ -46,5 +56,4 @@ export class TimersSynchronizerComponent implements OnInit {
       secondCounter.toggle();
     }
   }
-
 }
