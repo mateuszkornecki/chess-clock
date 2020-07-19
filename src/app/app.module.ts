@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { TimersSynchronizerComponent } from './timers-synchronizer/timers-synchronizer.component';
 import { TimersSettingsComponent } from './timers-settings/timers-settings.component';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './counter.reducer';
 
 @NgModule({
   declarations: [
@@ -19,15 +21,18 @@ import { TimersSettingsComponent } from './timers-settings/timers-settings.compo
     TimerIntervalComponent,
     ProgressBarComponent,
     TimersSynchronizerComponent,
-    TimersSettingsComponent
+    TimersSettingsComponent,
   ],
   imports: [
     BrowserModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({ count: counterReducer }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
