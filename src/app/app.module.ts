@@ -13,6 +13,8 @@ import { TimersSynchronizerComponent } from './timers-synchronizer/timers-synchr
 import { TimersSettingsComponent } from './timers-settings/timers-settings.component';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter.reducer';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,11 @@ import { counterReducer } from './counter.reducer';
     AppRoutingModule,
     FormsModule,
     StoreModule.forRoot({ count: counterReducer }),
+    BrowserAnimationsModule,
+    MatButtonModule
+  ],
+  exports: [
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],
