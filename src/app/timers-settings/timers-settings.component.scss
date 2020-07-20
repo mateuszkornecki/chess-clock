@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+button {
+  font-family: "Fira Code", monospace;
+  border: 0;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow:  5px 5px 8px #c4c4c4, -5px -5px 8px #ffffff;
+}
+
+.settings {
+  display: flex;
+  align-items: center;
+
+  &__button {
+    border: 0;
+    font-size: 1.25rem;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  &__counter {
+    font-size: 2.25rem;
+    padding: 0 2rem;
+    margin: 0;
+  }
+
+}
+.start {
+  height: 2rem;
+  width: 4rem;
+  margin-top: 2rem;
+}
+
+.units {
+  font-family: "Fira Code", monospace;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

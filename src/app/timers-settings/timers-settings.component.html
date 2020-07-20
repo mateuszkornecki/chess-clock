@@ -1,13 +1,16 @@
-<header style="display: flex; justify-content: center;">
-  <h1>Chess clock</h1>
-</header>
-<main style="display: flex; flex-direction: column; align-items: center;">
-  <div style="display: flex;">
-    <button mat-raised-button (click)="decrement()">-</button>
-    <p style="padding-left: 1rem; padding-right: 1rem;">Time to count: {{ count$ | async }}</p>
-    <button mat-raised-button (click)="increment()">+</button>
-  </div>
-
-  <br />
-  <a routerLink="/game" routerLinkActive="active">Start</a>
-</main>
+<div class="wrapper">
+  <header style="display: flex; justify-content: center;">
+    <h1>Settings</h1>
+  </header>
+  <main>
+    <section class="settings">
+      <button class="settings__button settings__button--decrease" (click)="decrement()">-</button>
+      <p class="settings__counter">{{ count$ | async }}</p>
+      <button class="settings__button settings__button--increase" (click)="increment()">+</button>
+    </section>
+    <p class="units">
+      minutes
+    </p>
+    <button class="start" [routerLink]="['/game']">Start</button>
+  </main>
+</div>

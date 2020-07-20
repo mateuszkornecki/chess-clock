@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { increment, decrement, reset } from '../counter.actions';
@@ -12,7 +13,7 @@ export class TimersSettingsComponent implements OnInit {
   test = 15000;
   count$: Observable<number>;
 
-  constructor(private store: Store<{ count: number }>) {
+  constructor(private store: Store<{ count: number }>, private router: Router) {
     this.count$ = store.pipe(select('count'));
   }
 
