@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1595176267467,
+  "timestamp": 1595269172826,
   "index": "/chess-clock/index.html",
   "assetGroups": [
     {
@@ -13,14 +13,14 @@
       "urls": [
         "/chess-clock/favicon.ico",
         "/chess-clock/index.html",
-        "/chess-clock/main-es2015.5454622f665bb01d3b4e.js",
-        "/chess-clock/main-es5.5454622f665bb01d3b4e.js",
+        "/chess-clock/main-es2015.ab4ae5a1dfd78ff00db6.js",
+        "/chess-clock/main-es5.ab4ae5a1dfd78ff00db6.js",
         "/chess-clock/manifest.webmanifest",
         "/chess-clock/polyfills-es2015.95bb65e853d2781ac3bd.js",
         "/chess-clock/polyfills-es5.341d48ffc88eaeae911d.js",
         "/chess-clock/runtime-es2015.409e6590615fb48d139f.js",
         "/chess-clock/runtime-es5.409e6590615fb48d139f.js",
-        "/chess-clock/styles.548eedd45ee610bd46ee.css"
+        "/chess-clock/styles.11085eb1476645aada2c.css"
       ],
       "patterns": []
     },
@@ -55,15 +55,15 @@
     "/chess-clock/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/chess-clock/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/chess-clock/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/chess-clock/index.html": "887e17e2ad82a615a2d0aa06525d301ced4fc217",
-    "/chess-clock/main-es2015.5454622f665bb01d3b4e.js": "febede0a2f6d5dcb94e7f12b8341d85ab272885c",
-    "/chess-clock/main-es5.5454622f665bb01d3b4e.js": "c2a7503dc0b00f97fd456b91584df825621da622",
+    "/chess-clock/index.html": "306eb3d7f0440be497d28812ea9146dfece7cc1f",
+    "/chess-clock/main-es2015.ab4ae5a1dfd78ff00db6.js": "9545206f98510d63c1b45175acc3321cff5b1a57",
+    "/chess-clock/main-es5.ab4ae5a1dfd78ff00db6.js": "7af589b57ed69c81e124bbb2ec1820e803913985",
     "/chess-clock/manifest.webmanifest": "df5f2a426b6b85de357f7edc48f210eeabdf5714",
     "/chess-clock/polyfills-es2015.95bb65e853d2781ac3bd.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "/chess-clock/polyfills-es5.341d48ffc88eaeae911d.js": "8aa26ea87b9958c6bd13b7c257c0e9940438e684",
     "/chess-clock/runtime-es2015.409e6590615fb48d139f.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/chess-clock/runtime-es5.409e6590615fb48d139f.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/chess-clock/styles.548eedd45ee610bd46ee.css": "86a8cb1e50f43180da3a8e99133c9004b3a7428b"
+    "/chess-clock/styles.11085eb1476645aada2c.css": "0a369e187254d87119a12c209c61199392c85c6b"
   },
   "navigationUrls": [
     {
