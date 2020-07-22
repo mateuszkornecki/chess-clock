@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { increment, decrement, reset } from '../counter.actions';
+import { increment, decrement, reset, custom } from '../counter.actions';
 
 @Component({
   selector: 'app-timers-settings',
@@ -17,14 +17,29 @@ export class TimersSettingsComponent implements OnInit {
     this.count$ = store.pipe(select('count'));
   }
 
+  ngOnInit(): void {
+    this.setFromLocalStorage();
+  }
+
+  saveToLocalStorage(value): void {
+    if (value) {
+      localStorage.setItem('chess-clock', `${value}`);
+    }
+  }
+
+  setFromLocalStorage(): void {
+    const value = Number(localStorage.getItem('chess-clock'));
+    if (value) {
+      this.store.dispatch(custom({value}));
+    }
+  }
+
   increment() {
     this.store.dispatch(increment());
   }
 
   decrement() {
-    let currentValue;
-    this.count$.subscribe((val) => (currentValue = val));
-    if (currentValue > 0) {
+    if (this.getCurrentValue() > 0) {
       this.store.dispatch(decrement());
     }
   }
@@ -33,5 +48,13 @@ export class TimersSettingsComponent implements OnInit {
     this.store.dispatch(reset());
   }
 
-  ngOnInit(): void {}
+  start() {
+    this.saveToLocalStorage(this.getCurrentValue());
+  }
+
+  getCurrentValue(): number {
+    let currentValue;
+    this.count$.subscribe((val) => (currentValue = val));
+    return currentValue;
+  }
 }
