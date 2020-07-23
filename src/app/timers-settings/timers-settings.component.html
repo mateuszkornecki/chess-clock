@@ -5,7 +5,9 @@
   <main>
     <section class="settings">
       <button class="settings__button settings__button--decrease" (click)="decrement()">-</button>
-      <p class="settings__counter">{{ count$ | async }}</p>
+      <div class="settings__wrapper">
+        <p class="settings__counter">{{ count$ | async }}</p>
+      </div>
       <button class="settings__button settings__button--increase" (click)="increment()">+</button>
     </section>
     <p class="units">

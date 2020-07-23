@@ -9,7 +9,7 @@ button {
   border: 0;
   background: #ffffff;
   border-radius: 8px;
-  box-shadow:  5px 5px 8px #c4c4c4, -5px -5px 8px #ffffff;
+  box-shadow: 5px 5px 8px #c4c4c4, -5px -5px 8px #ffffff;
 }
 
 .settings {
@@ -25,10 +25,14 @@ button {
 
   &__counter {
     font-size: 2.25rem;
-    padding: 0 2rem;
-    margin: 0;
   }
 
+  &__wrapper {
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .start {
   font-size: 1.25rem;
