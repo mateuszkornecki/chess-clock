@@ -14,6 +14,7 @@ import { TimersSettingsComponent } from './timers-settings/timers-settings.compo
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter.reducer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FinalNotificationComponent } from './final-notification/final-notification.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProgressBarComponent,
     TimersSynchronizerComponent,
     TimersSettingsComponent,
+    FinalNotificationComponent,
   ],
   imports: [
     BrowserModule,
