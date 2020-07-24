@@ -2,8 +2,10 @@ import {
   Component,
   OnDestroy,
   Input,
+  Output,
   OnChanges,
   SimpleChanges,
+  EventEmitter,
 } from '@angular/core';
 
 import { Colors } from '../Colors';
@@ -17,7 +19,7 @@ export class TimerIntervalComponent implements OnChanges, OnDestroy {
   isStarted = false;
   isRunning = false;
   isPaused = true;
-  isFinished = false;
+  //isFinished = false;
   initialTime: number;
   finishTime: number;
   actualTime: number;
@@ -26,7 +28,7 @@ export class TimerIntervalComponent implements OnChanges, OnDestroy {
   percentage: number;
   interval: ReturnType<typeof setTimeout>;
   @Input() timeToCount: number;
-
+  @Output() isFinished: EventEmitter<boolean> = new EventEmitter();
   ngOnChanges(changes: SimpleChanges) {
     this.setInitialTimeLeft(changes);
   }
@@ -104,7 +106,7 @@ export class TimerIntervalComponent implements OnChanges, OnDestroy {
         );
         this.setColor();
       } else {
-        this.isFinished = true;
+        this.isFinished.emit(true);
         clearInterval(this.interval);
       }
     }, 10);
