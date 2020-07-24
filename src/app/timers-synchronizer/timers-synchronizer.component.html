@@ -5,7 +5,7 @@
     [disabled]="paused === 'A'"
     (click)="onClick($event)"
   >
-    <app-timer-interval #A [timeToCount]="10000" (isFinished)="onFinish($event)"></app-timer-interval>
+    <app-timer-interval #A [timeToCount]="timeToCount" (isFinished)="onFinish($event)"></app-timer-interval>
   </button>
   <!--  TODO: Add global pause / global stop buttons-->
   <!--  <section>-->
