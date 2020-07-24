@@ -1,4 +1,4 @@
-import { Component, ViewChild} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { TimerIntervalComponent } from '../timer-interval/timer-interval.component';
 
 import { Store, select } from '@ngrx/store';
@@ -15,6 +15,7 @@ export class TimersSynchronizerComponent {
   paused: 'A' | 'B';
   running: 'A' | 'B';
   isStarted = false;
+  isFinished: boolean;
   timeToCount: number;
   @ViewChild('A')
   counterA: TimerIntervalComponent;
@@ -33,6 +34,12 @@ export class TimersSynchronizerComponent {
       this.second = this.first === 'A' ? 'B' : 'A';
     }
     this.toggle();
+  }
+
+  onFinish($event) {
+    if ($event) {
+      this.isFinished = true;
+    }
   }
 
   toggle() {
