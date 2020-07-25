@@ -13,29 +13,25 @@ main {
     justify-content: center;
   }
 }
-button {
+
+.counter {
   background: #ffffff;
   border: 0;
   outline: none;
   padding: 0;
-  &.counter {
-    &:enabled {
-      box-shadow: 0.5rem 0.5rem 2rem #d9d9d9, -0.5rem -0.5rem 2rem #ffffff;
-    }
-    &:disabled {
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-    }
-  }
-}
-
-.counter {
   align-items: center;
   font-family: "Fira Code", monospace;
   border-radius: 2.55rem;
   height: 25rem;
   width: 25rem;
   margin: 1rem;
+  &:enabled {
+    box-shadow: 0.5rem 0.5rem 2rem #d9d9d9, -0.5rem -0.5rem 2rem #ffffff;
+  }
+  &:disabled {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
   &--upper {
     @media (max-width: 1482px) {
       transform: rotate(180deg);
@@ -74,4 +70,26 @@ button {
 
 app-final-notification {
   position: absolute;
+}
+
+.settings {
+  display: flex;
+  &__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    border: 0;
+    font-size: 1.25rem;
+    height: 2rem;
+    width: 2rem;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 5px 5px 8px #c4c4c4, -5px -5px 8px #ffffff;
+  }
+}
+
+img path {
+  fill: red;
 }

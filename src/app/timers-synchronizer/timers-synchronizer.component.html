@@ -7,11 +7,14 @@
   >
     <app-timer-interval #A [timeToCount]="timeToCount" (isFinished)="handleFinish($event)"></app-timer-interval>
   </button>
-  <!--  TODO: Add global pause / global stop buttons-->
-  <!--  <section>-->
-  <!--    <button>||</button>-->
-  <!--    <button>O</button>-->
-  <!--  </section>-->
+    <section class="settings">
+      <button class ="settings__button settings--button--pause"(click)="handleGlobalPause()">
+        <img *ngIf="!isGloballyPaused" src="./assets/pause.svg" alt="">
+        <img *ngIf="isGloballyPaused" src="./assets/play.svg" alt="">
+      </button>
+      <button class ="settings__button"[routerLink]="['/settings']"><img src="./assets/settings.svg" alt=""></button>
+      <button class ="settings__button"(click)="handleReset()"><img src="./assets/stop.svg" alt=""></button>
+    </section>
   <button
     class="counter"
     id="B"

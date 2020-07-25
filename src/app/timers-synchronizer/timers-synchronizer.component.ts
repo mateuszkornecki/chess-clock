@@ -1,9 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { TimerIntervalComponent } from '../timer-interval/timer-interval.component';
 import { reset } from '../counter.actions';
-
 import { Store, select } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-timers-synchronizer',
@@ -17,6 +16,7 @@ export class TimersSynchronizerComponent {
   running: 'A' | 'B';
   isStarted = false;
   isFinished: boolean;
+  isGloballyPaused = false;
   timeToCount: number;
   @ViewChild('A')
   counterA: TimerIntervalComponent;
@@ -27,6 +27,16 @@ export class TimersSynchronizerComponent {
     this.store
       .pipe(select('count'))
       .subscribe((curr) => (this.timeToCount = curr * 60 * 1000));
+  }
+
+  public handleGlobalPause() {
+    if (this.isStarted) {
+      this.isGloballyPaused = !this.isGloballyPaused;
+      console.log(this.isGloballyPaused);
+      const runningComponent =
+        this.running === 'A' ? this.counterA : this.counterB;
+      runningComponent.toggle();
+    }
   }
 
   handleReset() {
@@ -59,12 +69,12 @@ export class TimersSynchronizerComponent {
     const firstCounter = this.first === 'A' ? this.counterA : this.counterB;
     const secondCounter = this.first === 'A' ? this.counterB : this.counterA;
 
-    if (!this.isStarted) {
+    if (!this.isStarted && !this.isGloballyPaused) {
       this.isStarted = true;
       this.running = this.first;
       this.paused = this.second;
       firstCounter.toggle();
-    } else {
+    } else if (!this.isGloballyPaused) {
       this.running = this.running === 'A' ? 'B' : 'A';
       this.paused = this.running === 'B' ? 'A' : 'B';
       firstCounter.toggle();
