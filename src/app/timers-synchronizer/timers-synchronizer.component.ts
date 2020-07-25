@@ -42,6 +42,7 @@ export class TimersSynchronizerComponent {
   handleReset() {
     this.isStarted = false;
     this.isFinished = false;
+    this.isGloballyPaused = false;
     this.running = null;
     this.paused = null;
     this.first = null;
