@@ -1,5 +1,6 @@
 <section>
   <p>Time's up!</p>
-  <!--TODO: this button should reset both counter, need to add this when the global reset will be ready -->
-  <button [routerLink]="['/settings']">Start again!</button>
+  <!--TODO: this button should forceReset both counter, need to add this when the global forceReset will be ready -->
+  <button (click)="handleClick()">Start again!</button>
+<!--  [routerLink]="['/settings']"-->
 </section>

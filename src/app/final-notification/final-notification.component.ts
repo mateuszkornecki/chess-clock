@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,7 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./final-notification.component.scss'],
 })
 export class FinalNotificationComponent implements OnInit {
+  @Output() forceReset: EventEmitter<boolean> = new EventEmitter();
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  public handleClick(): void {
+    this.forceReset.emit(true);
+  }
 }

@@ -20,5 +20,5 @@
   >
     <app-timer-interval #B [timeToCount]="timeToCount" (isFinished)="handleFinish($event)"></app-timer-interval>
   </button>
-  <app-final-notification *ngIf="isFinished"></app-final-notification>
+  <app-final-notification (forceReset)="handleReset()" *ngIf="isFinished"></app-final-notification>
 </main>
