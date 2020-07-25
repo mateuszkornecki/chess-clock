@@ -19,7 +19,6 @@ export class TimerIntervalComponent implements OnChanges, OnDestroy {
   isStarted = false;
   isRunning = false;
   isPaused = true;
-  //isFinished = false;
   initialTime: number;
   finishTime: number;
   actualTime: number;
@@ -64,6 +63,17 @@ export class TimerIntervalComponent implements OnChanges, OnDestroy {
     }
   }
 
+  public reset() {
+    this.isStarted = false;
+    this.isRunning = false;
+    this.isPaused = false;
+    this.percentage = null;
+    this.timeLeft = null;
+    this.finishTime = null;
+    this.setColor();
+    clearInterval(this.interval);
+  }
+
   private unPause() {
     if (this.isPaused) {
       this.isPaused = false;
@@ -91,8 +101,10 @@ export class TimerIntervalComponent implements OnChanges, OnDestroy {
           : this.percentage > 33
           ? Colors.Orange
           : Colors.Red;
-    } else {
+    } else if (this.isPaused) {
       this.color = Colors.Pause;
+    } else {
+      this.color = Colors.initialColor;
     }
   }
 
