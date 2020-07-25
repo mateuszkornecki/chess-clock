@@ -68,7 +68,7 @@ export class TimerIntervalComponent implements OnChanges, OnDestroy {
     this.isRunning = false;
     this.isPaused = false;
     this.percentage = null;
-    this.timeLeft = null;
+    this.timeLeft = this.timeToCount;
     this.finishTime = null;
     this.setColor();
     clearInterval(this.interval);
