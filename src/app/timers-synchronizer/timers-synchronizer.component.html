@@ -3,9 +3,9 @@
     class="counter counter--upper"
     id="A"
     [disabled]="paused === 'A'"
-    (click)="onClick($event)"
+    (click)="handleClick($event)"
   >
-    <app-timer-interval #A [timeToCount]="timeToCount" (isFinished)="onFinish($event)"></app-timer-interval>
+    <app-timer-interval #A [timeToCount]="timeToCount" (isFinished)="handleFinish($event)"></app-timer-interval>
   </button>
   <!--  TODO: Add global pause / global stop buttons-->
   <!--  <section>-->
@@ -16,9 +16,9 @@
     class="counter"
     id="B"
     [disabled]="paused === 'B'"
-    (click)="onClick($event)"
+    (click)="handleClick($event)"
   >
-    <app-timer-interval #B [timeToCount]="timeToCount" (isFinished)="onFinish($event)"></app-timer-interval>
+    <app-timer-interval #B [timeToCount]="timeToCount" (isFinished)="handleFinish($event)"></app-timer-interval>
   </button>
   <app-final-notification *ngIf="isFinished"></app-final-notification>
 </main>

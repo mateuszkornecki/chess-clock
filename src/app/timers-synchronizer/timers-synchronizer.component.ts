@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { TimerIntervalComponent } from '../timer-interval/timer-interval.component';
+import { reset } from '../counter.actions';
 
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -28,7 +29,19 @@ export class TimersSynchronizerComponent {
       .subscribe((curr) => (this.timeToCount = curr * 60 * 1000));
   }
 
-  onClick(event) {
+  handleReset() {
+    this.isStarted = false;
+    this.isFinished = false;
+    this.running = null;
+    this.paused = null;
+    this.first = null;
+    this.second = null;
+    this.store.dispatch(reset());
+    this.counterA.reset();
+    this.counterB.reset();
+  }
+
+  handleClick(event) {
     if (!this.first) {
       this.first = event.path[4].id;
       this.second = this.first === 'A' ? 'B' : 'A';
@@ -36,8 +49,8 @@ export class TimersSynchronizerComponent {
     this.toggle();
   }
 
-  onFinish($event) {
-    if ($event) {
+  handleFinish(event) {
+    if (event) {
       this.isFinished = true;
     }
   }
