@@ -32,7 +32,6 @@ export class TimersSynchronizerComponent {
   public handleGlobalPause() {
     if (this.isStarted) {
       this.isGloballyPaused = !this.isGloballyPaused;
-      console.log(this.isGloballyPaused);
       const runningComponent =
         this.running === 'A' ? this.counterA : this.counterB;
       runningComponent.toggle();
@@ -54,7 +53,7 @@ export class TimersSynchronizerComponent {
 
   handleClick(event) {
     if (!this.first) {
-      this.first = event.path[4].id;
+      this.first = event.composedPath()[4].id;
       this.second = this.first === 'A' ? 'B' : 'A';
     }
     this.toggle();
