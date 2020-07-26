@@ -5,23 +5,45 @@
     [disabled]="paused === 'A'"
     (click)="handleClick($event)"
   >
-    <app-timer-interval #A [timeToCount]="timeToCount" (isFinished)="handleFinish($event)"></app-timer-interval>
+    <app-timer-interval
+      #A
+      [timeToCount]="timeToCount"
+      (isFinished)="handleFinish($event)"
+    ></app-timer-interval>
   </button>
-    <section class="settings">
-      <button class ="settings__button settings--button--pause"(click)="handleGlobalPause()">
-        <img *ngIf="!isGloballyPaused" src="./assets/pause.svg" alt="">
-        <img *ngIf="isGloballyPaused" src="./assets/play.svg" alt="">
-      </button>
-      <button class ="settings__button"[routerLink]="['/settings']"><img src="./assets/settings.svg" alt=""></button>
-      <button class ="settings__button"(click)="handleReset()"><img src="./assets/stop.svg" alt=""></button>
-    </section>
+  <section class="settings">
+    <button
+      class="settings__button settings--button--pause"
+      (click)="handleGlobalPause()"
+    >
+      <img
+        *ngIf="!isGloballyPaused"
+        src="./assets/pause.svg"
+        alt="pause icon"
+      />
+      <img *ngIf="isGloballyPaused" src="./assets/play.svg" alt="play icon" />
+    </button>
+    <button class="settings__button" [routerLink]="['/settings']">
+      <img src="./assets/settings.svg" alt="settings icon" />
+    </button>
+    <button class="settings__button" (click)="handleReset()">
+      <img src="./assets/stop.svg" alt="stop icon" />
+    </button>
+  </section>
   <button
     class="counter"
     id="B"
     [disabled]="paused === 'B'"
     (click)="handleClick($event)"
   >
-    <app-timer-interval #B [timeToCount]="timeToCount" (isFinished)="handleFinish($event)"></app-timer-interval>
+    <app-timer-interval
+      #B
+      [timeToCount]="timeToCount"
+      (isFinished)="handleFinish($event)"
+    ></app-timer-interval>
   </button>
-  <app-final-notification (forceReset)="handleReset()" *ngIf="isFinished"></app-final-notification>
+  <app-final-notification
+    (forceReset)="handleReset()"
+    *ngIf="isFinished"
+  ></app-final-notification>
 </main>
