@@ -1,6 +1,7 @@
 import {
   Component,
   OnChanges,
+  AfterViewInit,
   Input,
   ViewChild,
   ElementRef,
@@ -12,7 +13,7 @@ import {
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.scss'],
 })
-export class ProgressBarComponent implements OnChanges {
+export class ProgressBarComponent implements OnChanges, AfterViewInit {
   @Input() progress;
   @Input() color;
   @ViewChild('rect') rect: ElementRef;
@@ -21,9 +22,11 @@ export class ProgressBarComponent implements OnChanges {
   strokeDasharray: number;
   strokeDashoffset: number;
 
-  getRectLength() {
-    this.length = this.rect.nativeElement.getTotalLength();
-    this.strokeDasharray = this.length;
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.length = this.rect.nativeElement.getTotalLength();
+      this.strokeDasharray = this.length;
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
