@@ -9,3 +9,10 @@ body {
   font-family: "Fira Code", monospace;
   touch-action: manipulation;
 }
+
+//@media screen and (max-width: 767px) and (orientation: landscape) {
+//  html {
+//    height: 100vw;
+//    transform: rotate(90deg);
+//  }
+//}
