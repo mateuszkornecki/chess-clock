@@ -13,7 +13,7 @@ import {
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.scss'],
 })
-export class ProgressBarComponent implements OnChanges, AfterViewInit {
+export class ProgressBarComponent implements OnChanges {
   @Input() progress;
   @Input() color;
   @ViewChild('rect') rect: ElementRef;
@@ -21,12 +21,15 @@ export class ProgressBarComponent implements OnChanges, AfterViewInit {
   percent: number;
   strokeDasharray: number;
   strokeDashoffset: number;
+  private _svg?: HTMLElement;
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
+  @ViewChild('rect')
+  set rectElement(svg: ElementRef<HTMLElement>) {
+    if (svg && svg.nativeElement && this._svg !== svg.nativeElement) {
+      this._svg = svg.nativeElement;
       this.length = this.rect.nativeElement.getTotalLength();
       this.strokeDasharray = this.length;
-    });
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
