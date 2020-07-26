@@ -1,27 +1,16 @@
-# ChessClock
+# Chess Clock 🦄️
+Feel free to check out the finall [result](https://mateuszkornecki.github.io/chess-clock).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+## About the project 
+Because of the temporary lock-down during the COVID-19 pandemic, I started playing chess with my girlfriend. Unfortunatly we weren't able to find any nice looking counter so I decided to create my own one.
 
-## Development server
+Here you can find the concept made in [figma](https://www.figma.com/file/zVBFNEoke9oWRG1fh0fZ9x/chess-clock?node-id=0%3A1). The final design is slightly different but the main concept is still present.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+There are still some improvements that needs to be done, if you will find any bug feel free to report it on the [issue page](https://github.com/mateuszkornecki/chess-clock/issues)!
 
-## Code scaffolding
+## Tech stack
+- Angular 10
+- Typescript
+- Ngrx
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng timeToCount` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+I am considering creating native versions (iOS / Android) with the Ionic.
