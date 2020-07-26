@@ -10,6 +10,10 @@ button {
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 5px 5px 8px #c4c4c4, -5px -5px 8px #ffffff;
+  &:active {
+    transition: transform 0.03s linear;
+    transform: scale(1.075);
+  }
 }
 
 .settings {
