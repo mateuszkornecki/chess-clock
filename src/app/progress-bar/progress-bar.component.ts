@@ -1,7 +1,6 @@
 import {
   Component,
   OnChanges,
-  AfterViewInit,
   Input,
   ViewChild,
   ElementRef,
@@ -21,15 +20,10 @@ export class ProgressBarComponent implements OnChanges {
   percent: number;
   strokeDasharray: number;
   strokeDashoffset: number;
-  private _svg?: HTMLElement;
 
-  @ViewChild('rect')
-  set rectElement(svg: ElementRef<HTMLElement>) {
-    if (svg && svg.nativeElement && this._svg !== svg.nativeElement) {
-      this._svg = svg.nativeElement;
-      this.length = this.rect.nativeElement.getTotalLength();
-      this.strokeDasharray = this.length;
-    }
+  getRectLength() {
+    this.length = this.rect.nativeElement.getTotalLength();
+    this.strokeDasharray = this.length;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
