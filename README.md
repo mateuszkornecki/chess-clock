@@ -1,5 +1,5 @@
 # Chess Clock 🦄️
-Feel free to check out the finall [result](https://mateuszkornecki.github.io/chess-clock).
+Feel free to check out the final [result](https://mateuszkornecki.github.io/chess-clock).
 
 ## About the project 
 Because of the temporary lock-down during the COVID-19 pandemic, I started playing chess with my girlfriend. Unfortunatly we weren't able to find any nice looking counter so I decided to create my own one.
