@@ -1,3 +1,5 @@
+![project cover](https://github.com/mateuszkornecki/chess-clock/blob/master/src/assets/chess-clock.gif)
+
 # Chess Clock 🦄️
 Feel free to check out the final [result](https://mateuszkornecki.github.io/chess-clock).
 
