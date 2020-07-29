@@ -10,6 +10,8 @@ Because of the temporary lock-down during the COVID-19 pandemic, I started playi
 
 Here you can find the concept made in [figma](https://www.figma.com/file/zVBFNEoke9oWRG1fh0fZ9x/chess-clock?node-id=0%3A1). The final design is slightly different, but the main concept is still present.
 
+For the best experience download and use the app as a PWA.
+
 There are still some improvements that needs to be done, if you will find any bug feel free to report it on the [issue page](https://github.com/mateuszkornecki/chess-clock/issues)!
 
 ## Tech stack
@@ -19,3 +21,4 @@ There are still some improvements that needs to be done, if you will find any bu
 - Ngrx
 
 I am considering creating native versions (iOS / Android) with the Ionic.
+
