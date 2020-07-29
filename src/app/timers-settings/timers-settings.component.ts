@@ -38,7 +38,7 @@ export class TimersSettingsComponent implements OnInit {
   }
 
   decrement() {
-    if (this.getCurrentValue() > 0) {
+    if (this.getCurrentValue() > 1) {
       this.store.dispatch(decrement());
     }
   }
